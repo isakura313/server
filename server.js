@@ -20,7 +20,6 @@ require("./app/routes/deals.routes")(app);
 
 
 app.listen(port, () => {
-  console.log(process)
-  console.log(__dirname)
+
   console.log(`Example app listening at http://localhost:${port}`);
 });
