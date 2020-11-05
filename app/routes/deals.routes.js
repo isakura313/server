@@ -3,4 +3,10 @@ module.exports = app =>{
 
     //Получение всех дел
     app.get("/deals", deals.findAll)
+
+    // Создание дела
+    app.post("/deals", deals.create);
+
+    //удаление дела
+    // app.delete("/deals:/dealId", deals.delete);
 }

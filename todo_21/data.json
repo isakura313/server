@@ -1,0 +1,38 @@
+{
+  "motivation_array": [
+    "кто с утра рано встает, то не выспался",
+    "кто с утра встает, другим спать не дает",
+    "в силикиновой долине недвижимость подешевела",
+    "без труда не выловишь JS из пруда",
+    "мотивация не приходит одна"
+  ],
+  "important_color": [
+    "has-background-danger has-text-white is-size-3",
+    "has-background-warning has-text-black is-size-3",
+    "has-background-link has-text-white is-size-3"
+  ],
+  "animation_in": [
+    "animate__bounceInLeft",
+    "animate__fadeIn",
+    "animate__zoomIn"
+  ],
+  "animation_out":[
+    "animate__zoomOut",
+    "animate__zoomOutLeft",
+    "animate__flipOutX"
+  ],
+  "Month_Array": [
+    "Января",
+    "Февраля",
+    "Марта",
+    "Апреля",
+    "Мая",
+    "Июня",
+    "Июля",
+    "Августа",
+    "Сентября",
+    "Октября",
+    "Ноября",
+    "Декабря"
+  ]
+}
