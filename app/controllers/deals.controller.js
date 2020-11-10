@@ -42,7 +42,17 @@ exports.create = (req, res) => {
     })
 }
 
-
+exports.delete = (req, res) =>{
+    Deal.delete(req.params.dealId, (err, data)=>{
+        if(err){
+            res.status(500).send({
+                message: err.message || "Some errors"
+            })
+        } else{
+            res.send({message: "Дело удалено"});
+        }
+    })
+}
 
 
 

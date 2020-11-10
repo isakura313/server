@@ -13,7 +13,7 @@ Deal.getAll = result =>{
     let QueryAll = `SELECT * FROM ${TableName}`;
     sql.query(QueryAll, (err, res)=>{
         if(err){
-            console.log("error: ", err)
+            console.log("error: ", err);
             result(null, err)
             return;
         }else{
@@ -33,6 +33,20 @@ Deal.create = (newDeal, result) =>{
         console.log("Создание дела:", {id: res.insertId, ...newDeal})
         // result отвечает за ответ сервера
         result(null, {id:res.insertId, ...newDeal});
+    })
+}
+
+Deal.delete = (id, result) =>{
+    let QueryDelete = `DELETE FROM ${TableName} where id = ?`;
+    sql.query(QueryDelete, id, (err, res)=>{
+        if(err){
+            console.log("error:", err);
+            result(null, err);
+            return;
+        }
+        console.log("Удаление дела c...", id)
+        // result отвечает за ответ сервера
+        result(null, res);
     })
 }
 

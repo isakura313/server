@@ -16,7 +16,7 @@ const {
   Month_Array,
 } = json;
 
-console.log(motivation_array.__proto__);
+
 
 const mot_speech = document.querySelector(".Mot_speech");
 console.log(mot_speech.__proto__);
@@ -58,10 +58,23 @@ function addTask() {
     //тогда логическое выражения выполнится и функция прервет работу
     return;
   }
+
   let todo = new ItemDeal(content, select.value - 1);
-  let todo_to_JSON = JSON.stringify(todo);
-  localStorage.setItem(+todo.now, todo_to_JSON);
-  GenerateDOM(todo);
+
+  fetch('http://localhost:3000/deals', {
+    method: 'POST',
+    body: JSON.stringify({
+      prioritet: todo.color,
+      content: todo.text,
+      create_date: todo.now,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })  .then((response) => response.json())
+      .then((json) => GenerateDOM(json))
+  // let todo_to_JSON = JSON.stringify(todo);
+  // localStorage.setItem(+todo.now, todo_to_JSON);
   field.value = "";
 }
 
@@ -100,10 +113,10 @@ function GenerateDOM(obj) {
   deals.insertAdjacentHTML(
     "afterbegin",
     `
-  <div class="wrap_task ${important_color[obj.color]} " id=${+obj.now}> 
+   <div class="wrap_task ${important_color[obj.prioritet]} " id=${obj.id}> 
 
-  <p class="todo_text"> ${obj.text} </p>
-  <p>  ${obj.now.getDate()} ${Month_Array[obj.now.getMonth()]} </p>
+  <p class="todo_text"> ${obj.content} </p>
+  <p>  ${obj.create_date.substring(0, 8)} </p>
 
   <div> 
    <!-- <i class="material-icons icon_edit">edit</i> -->
@@ -118,8 +131,12 @@ deals.addEventListener("click", (e) => {
   //  удаление дела
   let trash = e.target.closest(".icon_delete");
   let wrap_task = trash.parentNode.parentNode;
+  fetch(`http://localhost:3000/deal:${wrap_task.id}`, {
+    method: 'DELETE'
+  })  .then((response) => response.json())
+      .then((json) => alert(json))
   wrap_task.remove();
-  localStorage.removeItem(wrap_task.getAttribute("id"));
+  // localStorage.removeItem(wrap_task.getAttribute("id"));
 });
 
 deals.addEventListener("click", (e) => {

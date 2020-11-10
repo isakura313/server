@@ -7,6 +7,8 @@ module.exports = app =>{
     // Создание дела
     app.post("/deals", deals.create);
 
+    app.delete("deal:dealId", deals.delete)
+
     //удаление дела
     // app.delete("/deals:/dealId", deals.delete);
 }

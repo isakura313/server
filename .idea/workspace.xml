@@ -24,7 +24,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4bd841e-03ab-4911-a5a2-68a3f8340b81" name="Default Changelist" comment="" />
+    <list default="true" id="e4bd841e-03ab-4911-a5a2-68a3f8340b81" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/deals.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/deals.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/deal.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/deal.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/deals.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/deals.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_21/ItemDeal.js" beforeDir="false" afterPath="$PROJECT_DIR$/todo_21/ItemDeal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_21/code.js" beforeDir="false" afterPath="$PROJECT_DIR$/todo_21/code.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_21/dist/index.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/todo_21/dist/index.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_21/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/todo_21/webpack.config.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +71,7 @@
       <workItem from="1604560702266" duration="978000" />
       <workItem from="1604561690967" duration="1165000" />
       <workItem from="1604562925551" duration="7352000" />
+      <workItem from="1604992710439" duration="7507000" />
     </task>
     <servers />
   </component>
