@@ -45,11 +45,15 @@ exports.create = (req, res) => {
 exports.delete = (req, res) =>{
     Deal.delete(req.params.dealId, (err, data)=>{
         if(err){
+            console.log(err.message);
+            console.log("Не могу дело удалить");
             res.status(500).send({
                 message: err.message || "Some errors"
             })
         } else{
-            res.send({message: "Дело удалено"});
+            // TODO res.send({message: "Дело удалено"});
+            res.send({message: `Дело c id ${req.params.dealId} удалено`});
+
         }
     })
 }

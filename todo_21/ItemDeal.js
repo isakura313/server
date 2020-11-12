@@ -8,6 +8,7 @@ export default class ItemDeal{
     constructor(text, color){
         this.text = text;
         this.color = color;
+        // TODO поправить генерацию месяцев на +1 и переделать на getDate()  
         this.now = `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDay()}`;
     }
 }

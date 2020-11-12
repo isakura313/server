@@ -116,7 +116,7 @@ function GenerateDOM(obj) {
    <div class="wrap_task ${important_color[obj.prioritet]} " id=${obj.id}> 
 
   <p class="todo_text"> ${obj.content} </p>
-  <p>  ${obj.create_date.substring(0, 8)} </p>
+  <p>  ${obj.create_date.substring(0, 10)} </p>
 
   <div> 
    <!-- <i class="material-icons icon_edit">edit</i> -->
@@ -131,10 +131,11 @@ deals.addEventListener("click", (e) => {
   //  удаление дела
   let trash = e.target.closest(".icon_delete");
   let wrap_task = trash.parentNode.parentNode;
-  fetch(`http://localhost:3000/deal:${wrap_task.id}`, {
+  fetch(`http://localhost:3000/deal/${wrap_task.id}`,{
+  // fetch(`http://localhost:3000/deal:${wrap_task.id}`, {
     method: 'DELETE'
   })  .then((response) => response.json())
-      .then((json) => alert(json))
+      .then((json) => alert(json.message))
   wrap_task.remove();
   // localStorage.removeItem(wrap_task.getAttribute("id"));
 });

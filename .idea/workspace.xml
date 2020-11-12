@@ -13,11 +13,6 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:heroku" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
@@ -25,14 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4bd841e-03ab-4911-a5a2-68a3f8340b81" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/deals.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/deals.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/deal.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/deal.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/deals.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/deals.routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_21/ItemDeal.js" beforeDir="false" afterPath="$PROJECT_DIR$/todo_21/ItemDeal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_21/code.js" beforeDir="false" afterPath="$PROJECT_DIR$/todo_21/code.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_21/dist/index.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/todo_21/dist/index.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_21/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/todo_21/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +66,7 @@
       <workItem from="1604561690967" duration="1165000" />
       <workItem from="1604562925551" duration="7352000" />
       <workItem from="1604992710439" duration="7507000" />
+      <workItem from="1605165962232" duration="3272000" />
     </task>
     <servers />
   </component>
@@ -99,9 +94,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="149" y="1" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1604562898755" />
-    <state x="301" y="23" width="838" height="1032" key="search.everywhere.popup" timestamp="1602752387399">
-      <screen x="0" y="23" width="1440" height="794" />
+    <state x="301" y="23" width="838" height="1031" key="search.everywhere.popup" timestamp="1605165984789">
+      <screen x="0" y="23" width="1440" height="793" />
     </state>
+    <state x="301" y="23" width="838" height="1031" key="search.everywhere.popup/0.23.1440.793@0.23.1440.793" timestamp="1605165984789" />
     <state x="301" y="23" width="838" height="1032" key="search.everywhere.popup/0.23.1440.794@0.23.1440.794" timestamp="1602752387399" />
   </component>
 </project>
