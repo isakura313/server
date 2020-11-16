@@ -4,7 +4,7 @@ import ItemDeal from "./ItemDeal";
 import { getRandom, getUniq, json } from "./nordic_random";
 // я тут комментарий написал
 
-fetch("http://localhost:3000/deals")
+fetch("https://todopavel2.herokuapp.com/deals")
     .then(response => response.json())
     .then(json => drawOnLoad(json))
 
@@ -61,7 +61,7 @@ function addTask() {
 
   let todo = new ItemDeal(content, select.value - 1);
 
-  fetch('http://localhost:3000/deals', {
+  fetch('https://todopavel2.herokuapp.com/deals', {
     method: 'POST',
     body: JSON.stringify({
       prioritet: todo.color,
@@ -131,7 +131,7 @@ deals.addEventListener("click", (e) => {
   //  удаление дела
   let trash = e.target.closest(".icon_delete");
   let wrap_task = trash.parentNode.parentNode;
-  fetch(`http://localhost:3000/deal/${wrap_task.id}`,{
+  fetch(`https://todopavel2.herokuapp.com/deal/${wrap_task.id}`,{
   // fetch(`http://localhost:3000/deal:${wrap_task.id}`, {
     method: 'DELETE'
   })  .then((response) => response.json())
