@@ -1,58 +1,58 @@
 const Deal = require("../models/deal.model.js");
 
-exports.findAll = (req, res) =>{
-    Deal.getAll((err, data)=>{
-        if(err){
+exports.findAll = (req, res) => {
+    Deal.getAll((err, data) => {
+        if (err) {
             res.status(500).send({
                 message: err.message || "Some errors"
             })
-        } else{
+        } else {
             res.send(data);
         }
     })
 }
 
 exports.create = (req, res) => {
-// экспорт функции создания дела в роутинг
+    // экспорт функции создания дела в роутинг
 
-    if(!req.body){
+    if (!req.body) {
         // проверка на пустое тело запроса
         console.log("Пустое тело(");
         res.status(400).send({
-            message:"У вас не определено тело"
+            message: "У вас не определено тело"
         })
     }
 
     const deal = new Deal({
         // создание дела из отправленных данных
-        "prioritet": req.body.prioritet,
+        "priority": req.body.priority,
         "content": req.body.content,
-        "create_date": req.body.create_date,
+        "dt": req.body.dt,
     })
 
-    Deal.create(deal, (err, data) =>{
+    Deal.create(deal, (err, data) => {
         // функция отправки данных дела в базу данных
-        if(err){
+        if (err) {
             res.status(500).send({
-                message:err.message || "Произошла ошибка"
+                message: err.message || "Произошла ошибка"
             })
-        } else{
+        } else {
             res.send(data);
         }
     })
 }
 
-exports.delete = (req, res) =>{
-    Deal.delete(req.params.dealId, (err, data)=>{
-        if(err){
+exports.delete = (req, res) => {
+    Deal.delete(req.params.dealId, (err, data) => {
+        if (err) {
             console.log(err.message);
             console.log("Не могу дело удалить");
             res.status(500).send({
                 message: err.message || "Some errors"
             })
-        } else{
+        } else {
             // TODO res.send({message: "Дело удалено"});
-            res.send({message: `Дело c id ${req.params.dealId} удалено`});
+            res.send({ message: `Дело c id ${req.params.dealId} удалено` });
 
         }
     })

@@ -4,9 +4,9 @@ import ItemDeal from "./ItemDeal";
 import { getRandom, getUniq, json } from "./nordic_random";
 // я тут комментарий написал
 
-fetch("https://todopavel2.herokuapp.com/deals")
-    .then(response => response.json())
-    .then(json => drawOnLoad(json))
+fetch("http://localhost:3000/deals")
+  .then(response => response.json())
+  .then(json => drawOnLoad(json))
 
 const {
   motivation_array,
@@ -61,18 +61,18 @@ function addTask() {
 
   let todo = new ItemDeal(content, select.value - 1);
 
-  fetch('https://todopavel2.herokuapp.com/deals', {
+  fetch('http://localhost:3000/deals', {
     method: 'POST',
     body: JSON.stringify({
-      prioritet: todo.color,
+      priority: todo.color,
       content: todo.text,
-      create_date: todo.now,
+      dt: todo.now,
     }),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
-  })  .then((response) => response.json())
-      .then((json) => GenerateDOM(json))
+  }).then((response) => response.json())
+    .then((json) => GenerateDOM(json))
   // let todo_to_JSON = JSON.stringify(todo);
   // localStorage.setItem(+todo.now, todo_to_JSON);
   field.value = "";
@@ -95,12 +95,6 @@ document.addEventListener("keypress", (event) => {
 //отобразить GenerateDOM
 function drawOnLoad(arr) {
   for (let i = 0; i < arr.length; i++) {
-    //Приняв число i, метод вернёт имя по номеру ключа в localStorage
-    // let lk_ley = localStorage.key(i);
-    // let content = localStorage.getItem(lk_ley);
-    // let todo = JSON.parse(content);
-    // let tempo_data = Date.parse(todo.now);
-    // todo.now = new Date(tempo_data);
     GenerateDOM(arr[i]);
   }
 }
@@ -109,14 +103,15 @@ function drawOnLoad(arr) {
 
 
 function GenerateDOM(obj) {
+  console.log(obj)
   // todo удалить pen
   deals.insertAdjacentHTML(
     "afterbegin",
     `
-   <div class="wrap_task ${important_color[obj.prioritet]} " id=${obj.id}> 
+   <div class="wrap_task ${important_color[obj.priority]} " id=${obj.id}> 
 
   <p class="todo_text"> ${obj.content} </p>
-  <p>  ${obj.create_date.substring(0, 10)} </p>
+  <p>  ${obj.dt.substring(0, 10)} </p>
 
   <div> 
    <!-- <i class="material-icons icon_edit">edit</i> -->
@@ -131,11 +126,11 @@ deals.addEventListener("click", (e) => {
   //  удаление дела
   let trash = e.target.closest(".icon_delete");
   let wrap_task = trash.parentNode.parentNode;
-  fetch(`https://todopavel2.herokuapp.com/deal/${wrap_task.id}`,{
-  // fetch(`http://localhost:3000/deal:${wrap_task.id}`, {
+  fetch(`http://localhost:3000/deal/${wrap_task.id}`, {
+    // fetch(`http://localhost:3000/deal:${wrap_task.id}`, {
     method: 'DELETE'
-  })  .then((response) => response.json())
-      .then((json) => alert(json.message))
+  }).then((response) => response.json())
+    .then((json) => alert(json.message))
   wrap_task.remove();
   // localStorage.removeItem(wrap_task.getAttribute("id"));
 });

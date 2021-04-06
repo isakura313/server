@@ -1,45 +1,45 @@
 const sql = require("./db.js");
 
 
-const Deal = function(deal) {
-    this.prioritet = deal.prioritet;
+const Deal = function (deal) {
+    this.priority = deal.priority;
     this.content = deal.content;
-    this.create_date = deal.create_date;
+    this.dt = deal.dt;
 }
 
 const TableName = "todos";
 
-Deal.getAll = result =>{
+Deal.getAll = result => {
     let QueryAll = `SELECT * FROM ${TableName}`;
-    sql.query(QueryAll, (err, res)=>{
-        if(err){
+    sql.query(QueryAll, (err, res) => {
+        if (err) {
             console.log("error: ", err);
             result(null, err)
             return;
-        }else{
+        } else {
             console.log("deals: ", res)
             result(null, res)
         }
     })
 }
 
-Deal.create = (newDeal, result) =>{
+Deal.create = (newDeal, result) => {
     let QueryCreate = `INSERT INTO ${TableName} SET ?`;
-    sql.query(QueryCreate, newDeal, (err, res)=>{
-        if(err){
+    sql.query(QueryCreate, newDeal, (err, res) => {
+        if (err) {
             console.log("error:", err);
             return;
         }
-        console.log("Создание дела:", {id: res.insertId, ...newDeal})
+        console.log("Создание дела:", { id: res.insertId, ...newDeal })
         // result отвечает за ответ сервера
-        result(null, {id:res.insertId, ...newDeal});
+        result(null, { id: res.insertId, ...newDeal });
     })
 }
 
-Deal.delete = (id, result) =>{
+Deal.delete = (id, result) => {
     let QueryDelete = `DELETE FROM ${TableName} where id = ?`;
-    sql.query(QueryDelete, id, (err, res)=>{
-        if(err){
+    sql.query(QueryDelete, id, (err, res) => {
+        if (err) {
             console.log("error:", err);
             result(null, err);
             return;
